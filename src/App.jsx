@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [date, setDate] = useState(new Date());
   const [dayInMonth, setDayInMonth] = useState([]);
+  const week_days = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс',]
 
   const FullDayInMonth = (y, m) => {
     const years = y
@@ -45,15 +46,20 @@ export default function App() {
   }, [date]);
 
   return (
-    <div>
-      <div className="btns">
+    <div className="container">
+      <div className="btns_nav">
         <button onClick={() => handlePrevMonth("py")}>{"<<"}</button>
         <button onClick={() => handlePrevMonth("pm")}>{"<"}</button>
         <b>{date.toLocaleDateString()}</b>
         <button onClick={() => handlePrevMonth("nm")}>{">"}</button>
         <button onClick={() => handlePrevMonth("ny")}>{">>"}</button>
       </div>
-      <p>{dayInMonth.join("  -   ")}</p>
+      <div className="week_days">
+        {week_days.map((wd,ind)=><div className="week_day" key={ind}>{wd}</div>)}
+      </div>
+      <div className="days">
+          {dayInMonth.map((day, index)=><div className="calendar_day" key={index}>{day}</div>)}
+      </div>
     </div>
   );
 }

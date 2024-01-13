@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btns_nav{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.days{
+    display: flex;
+    flex-wrap: wrap;
+    width: 308px;
+    margin: 0 auto;
+}
+.calendar_day{
+    text-align: center;
+    background: rgb(148, 148, 148);
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+}
+
+.week_days{
+    display: flex;
+    flex-wrap: wrap;
+    width: 308px;
+    margin: 0 auto;
+}
+
+.week_day{
+    width: 40px;
+    height: 20px;
+    margin: 2px;
+}
+
