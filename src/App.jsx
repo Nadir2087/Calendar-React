@@ -11,13 +11,37 @@ export default function App() {
     const month = m;
     let day = 1;
     const days = [];
+    const dayInweek = [];
+    let emptydays = [];
 
     while (new Date(years, month, day).getMonth() === month) {
-      console.log(day);
+      dayInweek.push(new Date(years, month, day).getDay());
       days.push(day);
       day++;
     }
-
+    switch (dayInweek[0]) {
+      case 1:
+        break;
+      case 2:
+        emptydays.push('');
+        break;
+      case 3:
+        emptydays.push('','');
+        break;
+      case 4:
+        emptydays.push('','','');
+        break;
+      case 5:
+        emptydays.push('','','','');
+        break;
+      case 6:
+        emptydays.push('','','','','');
+        break;
+      case 0:
+        emptydays.push('','','','','','');
+        break;
+    }
+    days.unshift(...emptydays)
     setDayInMonth(days);
   };
 
