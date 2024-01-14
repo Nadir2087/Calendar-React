@@ -7,6 +7,7 @@ import ColendarDays from "./components/colendarDays";
 export default function App() {
   const [date, setDate] = useState(new Date());
   const [dayInMonth, setDayInMonth] = useState([]);
+  const realyDate = new Date()
 
   const FullDayInMonth = (y, m) => {
     const years = y
@@ -18,31 +19,17 @@ export default function App() {
 
     while (new Date(years, month, day).getMonth() === month) {
       dayInweek.push(new Date(years, month, day).getDay());
-      days.push(day);
+      days.push([years, month, day]);
       day++;
     }
-    switch (dayInweek[0]) {
-      case 1:
-        break;
-      case 2:
-        emptydays.push('');
-        break;
-      case 3:
-        emptydays.push('','');
-        break;
-      case 4:
-        emptydays.push('','','');
-        break;
-      case 5:
-        emptydays.push('','','','');
-        break;
-      case 6:
-        emptydays.push('','','','','');
-        break;
-      case 0:
-        emptydays.push('','','','','','');
-        break;
+    if(dayInweek[0]===0){
+      emptydays = Array(6).fill().map(()=>[...['','','']])
+    }else if(dayInweek === 1) {
+      emptydays = []
+    } else {
+      emptydays = Array(dayInweek[0]-1).fill().map(()=>[...['','','']])
     }
+    
     days.unshift(...emptydays)
 
 
@@ -66,7 +53,7 @@ export default function App() {
     <div className="container">
       <BtnNov upSetDate = {upSetDate} date={date}/>
       <WeekDays/>
-      <ColendarDays dayInMonth={dayInMonth} now={date.getDate()}/>
+      <ColendarDays dayInMonth={dayInMonth} now={[realyDate.getDate(), realyDate.getMonth()]}/>
       
     </div>
   );
