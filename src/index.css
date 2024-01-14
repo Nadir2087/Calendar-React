@@ -10,28 +10,42 @@
 }
 
 .btns_nav{
-    text-align: center;
-    margin: 0 auto;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    padding: 8px 10px;
+    margin: 2px;
+    font-weight:bolder;
+}
+
+.date{
+    /* padding: 8px 0; */
+    margin: 20px;
 }
 
 .days{
     display: flex;
     flex-wrap: wrap;
-    width: 308px;
+    width: 728px;
     margin: 0 auto;
 }
 .calendar_day{
+    padding: 5px;
     text-align: center;
     background: rgb(184, 184, 184);
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     margin: 2px;
 }
 
 .week_days{
     display: flex;
     flex-wrap: wrap;
-    width: 308px;
+    width: 728px;
     margin: 0 auto;
 }
 
@@ -42,8 +56,12 @@
 }
 
 .week_day{
-    width: 40px;
+    width: 100px;
     height: 20px;
     margin: 2px;
 }
 
+.now{
+    background: rgb(5, 90, 124);
+    color: #fff;
+}
