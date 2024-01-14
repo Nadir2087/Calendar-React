@@ -22,7 +22,7 @@
 }
 .calendar_day{
     text-align: center;
-    background: rgb(148, 148, 148);
+    background: rgb(184, 184, 184);
     width: 40px;
     height: 40px;
     margin: 2px;
@@ -33,6 +33,12 @@
     flex-wrap: wrap;
     width: 308px;
     margin: 0 auto;
+}
+
+.calendar_day.empty{
+
+    opacity: .7;
+
 }
 
 .week_day{

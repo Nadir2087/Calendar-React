@@ -82,7 +82,7 @@ export default function App() {
         {week_days.map((wd,ind)=><div className="week_day" key={ind}>{wd}</div>)}
       </div>
       <div className="days">
-          {dayInMonth.map((day, index)=><div className="calendar_day" key={index}>{day}</div>)}
+          {dayInMonth.map((day, index)=><div className={`calendar_day ${day==''?'empty': ''}`} key={index}>{day}</div>)}
       </div>
     </div>
   );
