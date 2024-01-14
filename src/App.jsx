@@ -42,6 +42,13 @@ export default function App() {
         break;
     }
     days.unshift(...emptydays)
+
+
+    if(days.length < 35){
+      while (days.length < 35){
+        days.push('');
+      }
+    }
     setDayInMonth(days);
   };
 
