@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import BtnNov from "./components/btnNav";
 import WeekDays from "./components/weekDays";
 import ColendarDays from "./components/colendarDays";
+import YearsColendar from "./components/yearsColendar";
 
 export default function App() {
   const [date, setDate] = useState(new Date());
   const [dayInMonth, setDayInMonth] = useState([]);
+  const [Mode , setMode] = useState('month')
   const realyDate = new Date()
 
   const FullDayInMonth = (y, m) => {
@@ -44,16 +46,19 @@ export default function App() {
   const upSetDate = (newDate)=>{
     setDate(newDate)
   }
-
+  const upSetMode = (mode)=>{
+    setMode(mode)
+  }
   useEffect(() => {
     FullDayInMonth(date.getFullYear(), date.getMonth());
   }, [date]);
 
   return (
     <div className="container">
-      <BtnNov upSetDate = {upSetDate} date={date}/>
-      <WeekDays/>
-      <ColendarDays dayInMonth={dayInMonth} now={[realyDate.getDate(), realyDate.getMonth()]}/>
+      {Mode}
+      <BtnNov upSetDate = {upSetDate} date={date} mode={upSetMode}/>
+      {Mode === 'month'?<><WeekDays/> <ColendarDays dayInMonth={dayInMonth} now={[realyDate.getDate(), realyDate.getMonth()]}/></> : ''}
+      {Mode === 'years'? <><YearsColendar date={date}/></>: ''}     
       
     </div>
   );

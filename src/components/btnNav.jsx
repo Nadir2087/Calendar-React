@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export default function BtnNov({ date, upSetDate }) {
-    const [chooseValue, setChooseValue] = useState('month')
+export default function BtnNov({ date, upSetDate, mode }) {
   const handlePrevMonth = (el) => {
     let years = date.getFullYear();
     let month = date.getMonth();
@@ -17,6 +16,9 @@ export default function BtnNov({ date, upSetDate }) {
     }
     upSetDate(new Date(years, month, day));
   };
+  const changeMode = (event)=>{
+    mode(event.target.value)
+  }
   return (
     <div className="header">
       <div className="btns_nav">
@@ -35,13 +37,12 @@ export default function BtnNov({ date, upSetDate }) {
         </button>
       </div>
       <div className="choose_mode_on_colendar">
-        <select defaultValue={chooseValue} onChange={(event) => setChooseValue(event.target.value)} name="choose_mode" id="chooseNode">
+        <select defaultValue={'month'} onChange={()=>changeMode(event)} name="choose_mode" id="chooseNode">
             <option className="choose_value" value={'week'}>Неделя</option>
             <option className="choose_value" value={'month'}>Месяц</option>
             <option className="choose_value" value={'years'}>Год</option>
         </select>
       </div>
-
     </div>
   );
 }
